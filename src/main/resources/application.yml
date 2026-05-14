@@ -1,0 +1,84 @@
+server:
+  port: 8080
+
+spring:
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:端口号/数据库名?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: #用户名
+    password: #密码
+    #数据库连接池
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      connection-timeout: 30000
+
+  # Redis 配置
+  data:
+    redis:
+      host: localhost
+      port: #端口号
+      password: #密码
+      database: 0
+      timeout: 5000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1ms
+
+  # Jackson 日期格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  # 文件上传大小限制
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.finance.modules.*.entity
+  configuration:
+    map-underscore-to-camel-case: true  #数据库字段 user_name → 自动映射实体类 userName
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #控制台会打印执行的 SQL 语句
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# JWT 配置
+jwt:
+  secret:  #加密密钥
+  expiration: 604800000   # 7天 = 7 * 24 * 60 * 60 * 1000 毫秒
+
+# AI 配置（DeepSeek 模型，通过 SiliconFlow API 调用）
+ai:
+  enabled: true
+  provider: deepseek
+  model: deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
+  api-key: #API密钥
+  base-url: https://api.siliconflow.cn/v1
+  timeout: 60000
+  max-tokens: 1000
+
+# 日志级别
+logging:
+  level:
+    com.finance: debug
+    org.springframework.security: info
+    root: info
+
+#关闭旧版 MyBatis 扫描
+mybatis:
+  mapper-scan:
+    enabled: false
