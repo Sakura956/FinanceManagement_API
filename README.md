@@ -2,7 +2,7 @@
 
 基于 Spring Boot 3 + MyBatis-Plus + Spring Security + JWT 的个人财务管理后端系统，提供收支记账、理财计划管理、统计分析、备忘录与 AI 智能助手等功能。
 
-**前端项目（Vue 3）**：[https://gitee.com/sakura_cjy/finance-management_-vue](https://gitee.com/sakura_cjy/finance-management_-vue)
+**前端项目（Vue 3）**：[https://github.com/Sakura956/FinanceManagement_Vue](https://github.com/Sakura956/FinanceManagement_Vue)
 
 ## 技术栈
 
@@ -250,7 +250,7 @@ Authorization: Bearer <token>
 
 本系统的前端项目使用 **Vue 3** 开发，代码托管在 Gitee：
 
-**[https://gitee.com/sakura_cjy/finance-management_-vue](https://gitee.com/sakura_cjy/finance-management_-vue)**
+**[https://github.com/Sakura956/FinanceManagement_Vue](https://github.com/Sakura956/FinanceManagement_Vue)**
 
 请将前后端项目分别克隆后配合运行，前端默认代理后端地址为 `http://localhost:8080`。
 
